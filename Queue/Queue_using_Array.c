@@ -35,11 +35,26 @@ void enqueue(struct queue* q,int val)
        q->arr[q->r]=val;
     }
 }
-
+int dequeue(struct queue* q)
+{
+    
+    int a=-1;
+    if(isEmpty(q))
+    {
+        printf("The queue is empty\n");
+    }
+    else
+    {
+        q->f++;
+        a=q->arr[q->f];
+    }
+   // q->size--;
+    return a;
+}
 int main()
 {
     struct queue q;
-    q.size=3;
+    q.size=4;
     q.f=q.r=-1;
     q.arr=(int*)malloc(q.size*sizeof(int));
     enqueue(&q,20);
@@ -51,5 +66,19 @@ int main()
         printf("%d",q.arr[i]);
         printf("\n");
     }
-    printf("index: %d",q.r);
+    printf("size: %d\n",q.size);
+    printf("Dequeueing process: %d\n",dequeue(&q));
+    for(int i=0;i<q.size;i++)
+    {
+        printf("%d",q.arr[i]);
+        printf("\n");
+    }
+    printf("size: %d\n",q.size);
+    printf("Dequeueing process: %d\n",dequeue(&q));
+    for(int i=0;i<q.size;i++)
+    {
+        printf("%d",q.arr[i]);
+        printf("\n");
+    }
+    printf("size: %d",q.size);
 }
