@@ -16,10 +16,6 @@ int main()
         for(int i=0;i<q;i++)
         {
            cin>>l[i]>>r[i]>>k[i];
-        //    for(int j=l[i]-1;j<r[i];j++)
-        //    {a[j]=k[i];
-        //     sum+=a[j];
-            
         }
         int b[n];
         

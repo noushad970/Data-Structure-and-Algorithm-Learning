@@ -61,22 +61,25 @@ int main()
     enqueue(&q,30);
     enqueue(&q,40);
     enqueue(&q,50);
-    for(int i=0;i<q.size;i++)
+    for(int i=q.f+1;i<q.size;i++)
     {
+        
         printf("%d",q.arr[i]);
         printf("\n");
     }
     printf("size: %d\n",q.size);
     printf("Dequeueing process: %d\n",dequeue(&q));
-    for(int i=0;i<q.size;i++)
+    for(int i=q.f+1;i<q.size;i++)
     {
+        
         printf("%d",q.arr[i]);
         printf("\n");
     }
     printf("size: %d\n",q.size);
     printf("Dequeueing process: %d\n",dequeue(&q));
-    for(int i=0;i<q.size;i++)
+    for(int i=q.f+1;i<q.size;i++)
     {
+        
         printf("%d",q.arr[i]);
         printf("\n");
     }
