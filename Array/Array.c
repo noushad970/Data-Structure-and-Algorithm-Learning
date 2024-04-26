@@ -2,12 +2,12 @@
 #include<stdlib.h>
 struct  arrays
 {
-    int fulSize;
-    int usedSize;
-    int *ptr;
+   long long int fulSize;
+   long long int usedSize;
+   int *ptr;
 };
 
-void createArray(struct arrays *a,int fullsize,int uSize)
+void createArray(struct arrays *a,long long int fullsize,long long int uSize)
 {
     a->fulSize=fullsize;
     a->usedSize=uSize;
@@ -15,14 +15,14 @@ void createArray(struct arrays *a,int fullsize,int uSize)
 }
 void ShowArray(struct arrays *a)
 {
-    for(int i=0;i<a->usedSize;i++)
+    for(long long int i=0;i<a->usedSize;i++)
     {
         printf("%d ",a->ptr[i]);
     }
 }
 void SetValue(struct arrays *a)
 {
-    for(int i=0;i<a->usedSize;i++)
+    for(long long int i=0;i<a->usedSize;i++)
     {
         int n;
         
@@ -33,8 +33,8 @@ void SetValue(struct arrays *a)
 int main()
 {
     struct arrays ar;
-    createArray(&ar,100,10);
-    SetValue(&ar);
+    createArray(&ar,1000000000000000,100000000000000);
+    //SetValue(&ar);
     ShowArray(&ar);
 
 }
