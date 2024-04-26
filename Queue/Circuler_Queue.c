@@ -60,27 +60,26 @@ int main()
     Enqueue(&q,30);
     Enqueue(&q,40);
     Enqueue(&q,50);
-    for(int i=0;i<q.size-1;i++)
-    {
-        
-        printf("%d",q.arr[i]);
-        printf("\n");
-    }
-    printf("size: %d\n",q.size);
+    
     printf("Dequeueing process: %d\n",Dequeue(&q));
-    for(int i=0;i<q.size-1;i++)
-    {
-        
-        printf("%d",q.arr[i]);
-        printf("\n");
-    }
-    printf("size: %d\n",q.size);
+    
     printf("Dequeueing process: %d\n",Dequeue(&q));
-    for(int i=0;i<q.size-1;i++)
-    {
-        
-        printf("%d",q.arr[i]);
-        printf("\n");
-    }
-    printf("size: %d",q.size);
+    
+    printf("Dequeueing process: %d\n",Dequeue(&q));
+    
+    printf("Dequeueing process: %d\n",Dequeue(&q));
+    
+    Enqueue(&q,2);
+    Enqueue(&q,3);
+    Enqueue(&q,4);
+    Enqueue(&q,5);
+    if(isFull(&q))
+    printf("Full queue\n");
+    else
+    printf("Queue is not full\n");
+
+    if(isEmpty(&q))
+    printf("Empty queue\n");
+    else
+    printf("Queue is not empty\n");
 }
