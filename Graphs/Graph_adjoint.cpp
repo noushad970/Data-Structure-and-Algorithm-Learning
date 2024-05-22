@@ -3,7 +3,7 @@ using namespace std;
 template <typename t>
 class graphs{
 public:
-map<t,list<t>> adj;
+unordered_map<t,list<t>> adj;
 void addEdge(t u,t v, bool direction)
 {
     //direction=0->undirected, direction=1->directed;

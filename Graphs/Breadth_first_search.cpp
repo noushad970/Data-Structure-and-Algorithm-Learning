@@ -28,8 +28,8 @@ int main()
         
     }
     queue<int> q;
-    q.push(1);
-    vis[1]=true;
+    q.push(0);
+    vis[0]=true;
     while(!q.empty())
     {
         int node=q.front();
