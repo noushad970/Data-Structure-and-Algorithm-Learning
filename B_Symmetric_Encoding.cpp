@@ -6,7 +6,7 @@ int main()
     cin>>t;
     while (t--)
     {
-        string s,s3;
+        string s,s3={};
         int n;
         cin>>n;
         cin>>s;
@@ -15,12 +15,11 @@ int main()
         {
             v.push_back(s[i]);
         }
-        int j=0;
+      
         sort(v.begin(),v.end());
         for(auto i:v)
         {
-           s[j]=i;
-           j++; 
+           s3+=i; 
         }
         set<char> st;
         for(int i=0;i<n;i++)
@@ -37,36 +36,26 @@ int main()
         }
         int size;
         size=s2.length();
-        int sizes;
-        if(size%2==0)
-        sizes=size/2;
-        else
-        sizes=(size/2)+1;
-        pair<char,char> p[sizes];
         
-        pair<char,bool> pr[size];
-        for(int i=0;i<sizes;i++)
+        pair<char,char> p[size];
+        
+        pair<char,bool> pr[s.length()];
+        for(int i=0;i<s.length();i++)
         {
             pr[i].first=s[i];
             pr[i].second=false;
+            
         }
-
-        for(int i=0;i<sizes;i++)
+        for(int i=0;i<size;i++)
         {
             p[i].first=s2[i];
             p[i].second=s2[s2.length()-i-1];
+      
         }
-         cout<<"printing pair:"<<endl;
-         for(int i=0;i<size;i++)
-         {
-             cout<<p[i].first<<" "<<p[i].second<<endl;
-         }
-        bool visited[s.length()];
-        for(int i=0;i<s.length();i++)
-        visited[i]=false;
+   
         for(int i=0;i<s.length();i++)
         {
-            for(int j=0;j<sizes;j++)
+            for(int j=0;j<size;j++)
             {
                 if(pr[i].first==p[j].first && !pr[i].second)
                 {
@@ -136,13 +125,3 @@ int main()
         cout<<s3<<endl;
     }
     */
-// input: hnndledmnhlttin
-// hnntletmnhlttin
-//hnntlntmnhlttin
-//mnntlntmnmlttin
-//mnntlntmnmlttln
-//mnnti
-
-// middle: dehilmnt
-
-// output: meetinthemiddle
