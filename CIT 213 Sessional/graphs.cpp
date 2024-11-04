@@ -3,10 +3,13 @@
 #include<list>
 #include<queue>
 using namespace std;
+const int N=1e5+2;
+bool vis[N];
 class graphs
 {
     public:
     unordered_map<int,list<int>> gp;
+    
     void addEdge(int u,int v,int direction){
     
     //1 =directed; 2= undirected
@@ -27,22 +30,22 @@ class graphs
     }
     void bfs(int source,int m){
         queue <int> q;
-        int vis[m];
+        int viss[m];
         for(int i=0;i<m;i++)
-        vis[i]=0;
+        viss[i]=0;
         q.push(source);
-        
+        viss[source]=1;
         while (!q.empty())
         {
             int node=q.front();
             q.pop();
-            cout<<node<<endl;
-            vis[source]=1;
+            cout<<node<<" ";
+            
             for(auto i: gp){
             for(auto j:i.second){
-              if(vis[j]!=1){
+              if(viss[j]!=1){
                 q.push(j);
-                vis[j]=1; 
+                viss[j]=1; 
               } 
             }
             
@@ -51,21 +54,20 @@ class graphs
         }
         
     }
-    int findMax(){
-        int findMax=0;
-        bool zeroPresented=false;
-        for(auto i: gp){
-            if(i.first>findMax)
-            findMax=i.first;
-            if(i.first==0)
-            zeroPresented=true;
+    void dfs(int source){
+       
+       vis[source]=1;
+       cout<<source<<" ";
+       for(auto i: gp[source]){
+            
+              if(vis[i]!=1){
+                dfs(i);
+                
+              } 
+            
         }
-        if(zeroPresented)
-        findMax++;
-        return findMax;
-
     }
-
+      
 };
 int main() {
     int n;
@@ -84,6 +86,13 @@ int main() {
     int s;
     cin>>s;
     gp.bfs(s,n);
+  
+    for(int i=0;i<n;i++)
+        vis[i]=0;
+        cout<<"DFS:"<<endl;
+    gp.dfs(s);
 
 }
-//7 7 1 2 1 3 2 4 2 5 2 6 2 7 7 3
+
+
+//7 1 2 1 3 2 4 2 5 2 6 2 7 7 3
